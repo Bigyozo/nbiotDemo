@@ -2,7 +2,7 @@ package dut.zfl.nbiot.enums;
 
 /**
  * @author zhangfl<br />
- * @program:myshop
+ * @program:nbiotDemo
  * @Description: <br/>
  * @create: 2018/12/7 17:13<br/>
  */

@@ -13,16 +13,16 @@
                     <ul class="nav navbar-nav">
                         <#if isOpen==true>
                         <li>
-                            <a href="/nbiot/show?open=false">中止接受信息</a>
+                            <a href="/nbiot/device?open=false">中止接受信息</a>
                         </li>
                         </#if>
                         <#if isOpen==false>
                         <li>
-                            <a href="/nbiot/show?open=true">恢复接受信息</a>
+                            <a href="/nbiot/device?open=true">恢复接受信息</a>
                         </li>
                         </#if>
                         <li>
-                            <a href="/nbiot/device?open=${isOpen?string("true","false")}">设备控制面板</a>
+                            <a href="/nbiot/show?open=${isOpen?string("true","false")}">消息接受面板</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
@@ -79,6 +79,7 @@
                         </li>
                     </ul>
                 </div>
+
             </nav>
             <table class="table table-striped table-hover">
                 <thead>
@@ -87,42 +88,30 @@
                         设备ID
                     </th>
                     <th>
-                        亮度
-                    </th>
-                    <th>
-                        温度
-                    </th>
-                    <th>
-                        电流
-                    </th>
-                    <th>
                         状态
                     </th>
-                    <th>
-                        消息接受时间
+                    <th colspan="3">
+                        操作
                     </th>
                 </tr>
                 </thead>
                 <tbody>
-                <#list beanList as bean>
+                <#list devList as bean>
                 <tr>
                     <td>
                         ${bean.id}
                     </td>
                     <td>
-                        ${bean.brightness}
-                    </td>
-                    <td>
-                        ${bean.temperature}
-                    </td>
-                    <td>
-                        ${bean.current}
-                    </td>
-                    <td>
                         ${bean.getDeviceEnum().status}
                     </td>
                     <td>
-                        ${bean.time?string('yyyy-MM-dd HH:mm:ss')}
+                        <a href="#">激活设备</a>
+                    </td>
+                    <td>
+                        <a href="#">设备关机</a>
+                    </td>
+                    <td>
+                        <a href="#">设备空闲</a>
                     </td>
                 </tr>
                 </#list>
@@ -138,6 +127,6 @@
     {
         window.location.reload();
     }
-    setTimeout('myrefresh()',5000);
+    setTimeout('myrefresh()',8000);
 </script>
 </html>

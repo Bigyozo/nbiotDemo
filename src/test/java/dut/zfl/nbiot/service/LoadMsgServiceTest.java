@@ -23,7 +23,7 @@ public class LoadMsgServiceTest {
 
     @Test
     public void loadAllMsg() {
-        List<MsgBean> beanList=loadMsgService.LoadAllMsg();
+        List<MsgBean> beanList=loadMsgService.loadAllMsg();
         System.out.println(beanList);
     }
 }

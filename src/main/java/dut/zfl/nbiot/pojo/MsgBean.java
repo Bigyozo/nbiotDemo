@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * @author zhangfl<br   />
  * @program:nbiotDemo
- * @Description: <br/>
+ * @Description: udp消息<br/>
  * @create: 2019/1/17 21:27<br/>
  */
 @Data

@@ -1,4 +1,4 @@
-package dut.zfl.nbiot.pojo;
+package dut.zfl.nbiot.component;
 
 import dut.zfl.nbiot.enums.ResultEnum;
 import dut.zfl.nbiot.exception.IotException;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author zhangfl<br />
  * @program:nbiotDemo
- * @Description: <br/>
+ * @Description: udp消息接受类<br/>
  * @create: 2019/1/6 17:23<br/>
  */
 @Component
@@ -49,11 +49,12 @@ public class Receiver implements Runnable{
             try {
                 socket.receive(packet);
                 String message=new String(packet.getData(),0,packet.getLength());
-                String[] msg=message.split("\\s+",2);
+                String[] msg=message.split("\\s+");
                 String date=DateUtil.getDateStr();
                 message+=" "+date;
                 redisTemplate.opsForList().rightPush(msg[0],message);
                 redisTemplate.expire(msg[0],7200, TimeUnit.SECONDS);
+                redisTemplate.opsForValue().set("State_"+msg[0],msg[4]);
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new IotException(ResultEnum.RECEIVE_ERROR);
@@ -63,6 +64,10 @@ public class Receiver implements Runnable{
 
     public void setFlag(boolean value){
         this.flag=value;
+    }
+
+    public boolean getFlag(){
+        return this.flag;
     }
 
 }
