@@ -1,6 +1,7 @@
 <html>
 <#include "../common/header.ftl">
 <body>
+<#include "../common/headicon.ftl">
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -13,16 +14,16 @@
                     <ul class="nav navbar-nav">
                         <#if isOpen==true>
                         <li>
-                            <a href="/nbiot/show?open=false">中止接受信息</a>
+                            <a href="/nbiot/light/show?open=false">中止接受信息</a>
                         </li>
                         </#if>
                         <#if isOpen==false>
                         <li>
-                            <a href="/nbiot/show?open=true">恢复接受信息</a>
+                            <a href="/nbiot/light/show?open=true">恢复接受信息</a>
                         </li>
                         </#if>
                         <li>
-                            <a href="/nbiot/device?open=${isOpen?string("true","false")}">设备控制面板</a>
+                            <a href="/nbiot/light/device?open=${isOpen?string("true","false")}">设备控制面板</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>

@@ -21,7 +21,7 @@ import java.util.Map;
  * @create: 2019/1/10 19:23<br/>
  */
 @Controller
-@RequestMapping("/nbiot")
+@RequestMapping("/light")
 public class ReceiverController {
     @Autowired
     ReceiverService receiverService;
