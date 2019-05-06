@@ -1,6 +1,6 @@
 package dut.zfl.nbiot.service;
 
-import dut.zfl.nbiot.component.Receiver;
+import dut.zfl.nbiot.component.OIOServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,31 +15,31 @@ import javax.annotation.PostConstruct;
 @Service
 public class ReceiverService {
     @Autowired
-    Receiver receiver;
+    OIOServer oioServer;
 
     @PostConstruct
     public void init(){
-        Thread thread=new Thread(receiver);
+        Thread thread=new Thread(oioServer);
         thread.start();
-        System.out.println("开始接受信息");
+        System.out.println("OIO开始接受信息");
     }
 
     public void restart(){
-        if(!receiver.getFlag()) {
-            receiver.setFlag(true);
-            Thread thread = new Thread(receiver);
+        if(!oioServer.getFlag()) {
+            oioServer.setFlag(true);
+            Thread thread = new Thread(oioServer);
             thread.start();
             System.out.println("重新开始接受信息");
         }
     }
 
     public void close(){
-        receiver.setFlag(false);
+        oioServer.setFlag(false);
         System.out.println("中止接受信息");
     }
 
     public boolean isOpen(){
-        return receiver.getFlag();
+        return oioServer.getFlag();
     }
 
     public void change(boolean open){
