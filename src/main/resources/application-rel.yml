@@ -5,10 +5,9 @@ spring:
     database: 2
   task:
     pool:
-      core-pool-size: 4
-      max-pool-size: 8
+      core-pool-size: 2
+      max-pool-size: 4
       keep-alive-seconds: 100
       queue-capacity: 100
 
 udpReceivePort: 9899
-

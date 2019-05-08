@@ -3,9 +3,10 @@ package dut.zfl.nbiot.service;
 
 import dut.zfl.nbiot.component.NettyServer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 /**
  * @Auther: zhangfanglong
@@ -13,19 +14,19 @@ import javax.annotation.PostConstruct;
  * @Description:
  */
 @Service
-public class NettyService {
+public class NettyService implements ApplicationListener<ContextRefreshedEvent> {
     @Autowired
     NettyServer nettyServer;
 
-    @PostConstruct
-    public void init(){
-        System.out.println("开始接受信息");
+    @Value("${udpReceivePort}")
+    int udpReceivePort;
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         try {
-            nettyServer.start();
+            nettyServer.start(udpReceivePort);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
-
 }

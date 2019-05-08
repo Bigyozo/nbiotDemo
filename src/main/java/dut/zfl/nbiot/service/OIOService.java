@@ -9,19 +9,19 @@ import javax.annotation.PostConstruct;
 /**
  * @author zhangfl<br />
  * @program:nbiotDemo
- * @Description: 接受类的控制类<br/>
+ * @Description: OIOserver的控制类<br/>
  * @create: 2019/1/10 19:25<br/>
  */
 @Service
-public class ReceiverService {
+public class OIOService {
     @Autowired
     OIOServer oioServer;
 
     @PostConstruct
     public void init(){
-        Thread thread=new Thread(oioServer);
+        /*Thread thread=new Thread(oioServer);
         thread.start();
-        System.out.println("OIO开始接受信息");
+        System.out.println("OIO开始接受信息");*/
     }
 
     public void restart(){

@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author zhangfl<br />
  * @program:nbiotDemo
- * @Description: udp消息接受类<br/>
+ * @Description: 阻塞式udp server<br/>
  * @create: 2019/1/6 17:23<br/>
  */
 @Component
