@@ -118,6 +118,6 @@
     {
         window.location.reload();
     }
-    setTimeout('myrefresh()',8000);
+    setTimeout('myrefresh()',60000);
 </script>
 </html>

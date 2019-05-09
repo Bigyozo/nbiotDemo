@@ -129,6 +129,6 @@
     {
         window.location.reload();
     }
-    setTimeout('myrefresh()',5000);
+    setTimeout('myrefresh()',30000);
 </script>
 </html>
