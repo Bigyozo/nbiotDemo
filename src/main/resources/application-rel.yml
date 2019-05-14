@@ -1,6 +1,6 @@
 spring:
   redis:
-    host: 10.9.3.248
+    host: 127.0.0.1
     port: 6379
     database: 2
   task:
@@ -10,4 +10,4 @@ spring:
       keep-alive-seconds: 100
       queue-capacity: 100
 
-udpReceivePort: 9899
+udpReceivePort: 9898

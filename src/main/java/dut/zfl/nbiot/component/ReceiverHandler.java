@@ -29,7 +29,7 @@ public class ReceiverHandler extends SimpleChannelInboundHandler<DatagramPacket>
         String date= DateUtil.getDateStr();
         message+=" "+date;
         redisTemplate.opsForList().rightPush(msg[0],message);
-        redisTemplate.expire(msg[0],48, TimeUnit.HOURS);
+        redisTemplate.expire(msg[0],72, TimeUnit.HOURS);
         redisTemplate.opsForValue().set("State_"+msg[0],msg[4]);
     }
 
