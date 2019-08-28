@@ -10,5 +10,6 @@ public class NbiotApplication {
         SpringApplication.run(NbiotApplication.class, args);
     }
 
+
 }
 

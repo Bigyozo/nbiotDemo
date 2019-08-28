@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @create: 2019/1/6 17:23<br/>
  */
 @Component
-public class OIOServer implements Runnable{
+public class BIOServer implements Runnable{
     @Autowired
     private StringRedisTemplate redisTemplate;
 
@@ -28,11 +28,11 @@ public class OIOServer implements Runnable{
     private int port;
     private volatile boolean flag=true;
 
-    public OIOServer() {
+    public BIOServer() {
         this(9898);
     }
 
-    public OIOServer(int port) {
+    public BIOServer(int port) {
         this.port=port;
         try {
             this.socket = new DatagramSocket(this.port);

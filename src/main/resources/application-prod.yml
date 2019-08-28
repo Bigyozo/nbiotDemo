@@ -1,0 +1,16 @@
+spring:
+  redis:
+    host: 172.17.0.2
+    port: 6379
+    database: 1
+    sentinel:
+      master: mymaster
+      nodes: 172.17.0.5:26379,172.17.0.6:26380,172.17.0.7:26381
+    password: 123456
+  task:
+    pool:
+      core-pool-size: 2
+      max-pool-size: 4
+      keep-alive-seconds: 100
+      queue-capacity: 100
+udpReceivePort: 9899
